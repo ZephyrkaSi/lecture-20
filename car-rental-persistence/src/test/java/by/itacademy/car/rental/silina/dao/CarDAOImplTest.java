@@ -1,7 +1,5 @@
 package by.itacademy.car.rental.silina.dao;
 
-import by.itacademy.car.rental.silina.config.DatabaseConfig;
-import by.itacademy.car.rental.silina.config.MySpringMvcDispatcherServletInitializer;
 import by.itacademy.car.rental.silina.dao.impl.CarDAOImpl;
 import by.itacademy.car.rental.silina.entity.Car;
 import by.itacademy.car.rental.silina.entity.CarModel;
@@ -14,13 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.transaction.annotation.Transactional;
+
+import javax.transaction.Transactional;
 
 @Slf4j
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = {MySpringMvcDispatcherServletInitializer.class, DatabaseConfig.class})
-@WebAppConfiguration
+@ContextConfiguration({"classpath:spring/spring-dao-config.xml"})
 @Sql(scripts = {"/schema.sql", "/data.sql"})
 class CarDAOImplTest {
     @Autowired

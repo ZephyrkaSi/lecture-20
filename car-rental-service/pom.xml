@@ -3,7 +3,7 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>lecture-18</artifactId>
+        <artifactId>lecture-20</artifactId>
         <groupId>by.itacademy.car.rental.silina</groupId>
         <version>1.0</version>
     </parent>
@@ -22,6 +22,10 @@
             <artifactId>car-rental-persistence</artifactId>
             <version>1.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>by.itacademy.car.rental.silina</groupId>
+            <artifactId>car-rental-config</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 </project>
