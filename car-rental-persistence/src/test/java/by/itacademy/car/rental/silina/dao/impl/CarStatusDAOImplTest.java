@@ -1,7 +1,6 @@
 package by.itacademy.car.rental.silina.dao.impl;
 
 import by.itacademy.car.rental.silina.entity.CarStatus;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,7 +14,6 @@ import java.util.ArrayList;
 
 import static by.itacademy.car.rental.silina.constant.TestConstant.*;
 
-@Slf4j
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration({"classpath:spring/spring-dao-config.xml"})
 @Sql(scripts = {"/schema.sql", "/data.sql"})
@@ -35,6 +33,11 @@ class CarStatusDAOImplTest {
         Assertions.assertEquals(carStatusFromDB.getId(), DB_CAR_STATUS_ID);
         //compare actual car with car from db
         Assertions.assertEquals(carStatus, carStatusFromDB);
+    }
+
+    @Test
+    void getCarStatusByNullId_ExpectError() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> carStatusDAO.get(null));
     }
 
     @Test
